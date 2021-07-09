@@ -116,7 +116,7 @@ const Register = (props) => {
   };
 
   return (
-    <div className="col-md-12">
+    <div>
       <div className="w3-display-container w3-container" style={{ marginTop: '0px' }}>
         <img src={RegisterPic} alt="LoginPic" style={{ width: '100%' }} />
       </div>

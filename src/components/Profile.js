@@ -18,7 +18,10 @@ const Profile = () => {
         </h1>
       </div>
       <div className="w3-container w3-light-grey  w3-padding-32 ">
-        <table style={{width: "80%", marginLeft: "auto", marginRight: "auto", lineHeight: "40px"}}>
+      <div className="form-group">
+        <button className="w3-button w3-red w3-right">Edit</button>
+      </div>
+        <table style={{ width: "80%", marginLeft: "auto", marginRight: "auto", lineHeight: "40px" }}>
           <thead>
             <tr>
               <th>First Name</th>
@@ -55,16 +58,21 @@ const Profile = () => {
           </tbody>
           <thead>
             <tr>
-              <th>Is a Service Provider?</th>
+              <th>Profile</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>{currentUser.serviceProvider}</td>
+              <td><ul>
+                {currentUser.roles &&
+                  currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
+              </ul></td>
             </tr>
           </tbody>
         </table>
-      
+
+
+
         {/* <ul>
           {currentUser.roles &&
             currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
