@@ -5,6 +5,9 @@ import Input from "react-validation/build/input";
 
 const Profile = () => {
   const currentUser = AuthService.getCurrentUser();
+  const categories = AuthService.getCategories();
+  console.log(categories);
+ 
 
   return (
     <div>
@@ -69,14 +72,9 @@ const Profile = () => {
               </ul></td>
             </tr>
           </tbody>
+          
         </table>
 
-
-
-        {/* <ul>
-          {currentUser.roles &&
-            currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-        </ul> */}
       </div>
 
 

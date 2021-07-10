@@ -26,7 +26,8 @@ import PersonalCare from "./components/PersonalCare";
 import HealthCare from "./components/HealthCare";
 import OtherServices from "./components/OtherServices";
 import Footer from "./components/Footer";
-import ServicesPage from"./components/ServicesPage";
+import ServicesPage from "./components/ServicesPage";
+import RegisterServiceProviderProfile from "./components/RegisterServiceProviderProfile";
 
 
 const App = () => {
@@ -149,7 +150,7 @@ const App = () => {
           </li>
           <li className="nav-item">
             <Link to={"/otherServices"} className="nav-link">
-              Others Services
+              Other Services
             </Link>
           </li>
         </ul>
@@ -198,6 +199,7 @@ const App = () => {
             <Route path="/healthCare" component={HealthCare} />
             <Route path="/otherServices" component={OtherServices} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/registerServiceProviderProfile" component={RegisterServiceProviderProfile} />
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />

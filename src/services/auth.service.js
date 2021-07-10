@@ -4,12 +4,12 @@ const API_URL = "http://localhost:8080/api/auth/";
 
 const register = (firstName, lastName, email, address, province, password, serviceProvider) => {
   return axios.post(API_URL + "signup", {
-    firstName, 
-    lastName, 
-    email, 
-    address, 
-    province, 
-    password, 
+    firstName,
+    lastName,
+    email,
+    address,
+    province,
+    password,
     serviceProvider
   });
 };
@@ -37,9 +37,17 @@ const getCurrentUser = () => {
   return JSON.parse(localStorage.getItem("user"));
 };
 
+const getCategories = () => {
+  return axios.get(API_URL + "categories")
+  .then(res => {
+    console.log(JSON.stringify(res.data));
+  });
+}
+
 export default {
   register,
   login,
   logout,
   getCurrentUser,
+  getCategories
 };

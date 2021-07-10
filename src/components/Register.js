@@ -81,9 +81,9 @@ const Register = (props) => {
   const onChangeServiceProvider = (e) => {
     setServiceProvider("No");
     setIsChecked(!isChecked);
-    if(!isChecked) {
+    if (!isChecked) {
       setServiceProvider("Yes");
-    } 
+    }
   };
 
   const handleRegister = (e) => {
@@ -114,6 +114,9 @@ const Register = (props) => {
       );
     }
   };
+
+  const provinces = ['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Nova Scotia',
+    'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan'];
 
   return (
     <div>
@@ -175,11 +178,9 @@ const Register = (props) => {
               </div>
               <div className="form-group">
                 <label>
-                  <select id="province" className="w3-input w3-border" onChange={onChangeProvince} value={province} type="text">
+                  <select id="province" className="w3-input w3-border" onChange={onChangeProvince} value={province} type="text" >
                     <option value="">--Please select a Province--</option>
-                    <option value="Alberta">Alberta</option>
-                    <option value="British Columbia">British Columbia</option>
-                    <option value="Manitoba">Manitoba</option>
+                    {provinces.map(province => <option value={province}>{province}</option>)}
                   </select>
                 </label>
               </div>
