@@ -28,6 +28,7 @@ import OtherServices from "./components/OtherServices";
 import Footer from "./components/Footer";
 import ServicesPage from "./components/ServicesPage";
 import RegisterServiceProviderProfile from "./components/RegisterServiceProviderProfile";
+import FileUpload from "./components/FileUpload";
 
 
 const App = () => {
@@ -79,6 +80,11 @@ const App = () => {
                     My Profile
                   </a>
                 </li>
+                <li className="nav-item">
+                  <a href="/files" className="nav-link" >
+                    My Files
+                  </a>
+                </li>
               </div>
             ) : (
               <div className="navbar-nav ml-auto">
@@ -105,6 +111,7 @@ const App = () => {
                 Favorities
               </li>
             </div>
+
 
           </li>
 
@@ -199,6 +206,7 @@ const App = () => {
             <Route path="/healthCare" component={HealthCare} />
             <Route path="/otherServices" component={OtherServices} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/files" component={FileUpload} />
             <Route exact path="/registerServiceProviderProfile" component={RegisterServiceProviderProfile} />
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
