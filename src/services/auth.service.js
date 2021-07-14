@@ -37,12 +37,16 @@ const getCurrentUser = () => {
   return JSON.parse(localStorage.getItem("user"));
 };
 
-const getCategories = () => {
-  return axios.get(API_URL + "categories")
-  .then(res => {
-    console.log(JSON.stringify(res.data));
-  });
+
+const getCategories = async () => {
+  try{ 
+    return axios
+    .get(API_URL + "categories")
+  } catch (error) {
+    console.error(error)
+  }
 }
+
 
 export default {
   register,

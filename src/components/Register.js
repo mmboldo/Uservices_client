@@ -49,7 +49,7 @@ const Register = (props) => {
   const [address, setAddress] = useState("");
   const [province, setProvince] = useState("");
   const [password, setPassword] = useState("");
-  const [serviceProvider, setServiceProvider] = useState("");
+  const [serviceProvider, setServiceProvider] = useState(false);
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
   const [isChecked, setIsChecked] = useState();
@@ -79,11 +79,12 @@ const Register = (props) => {
     setPassword(password);
   };
   const onChangeServiceProvider = (e) => {
-    setServiceProvider("No");
-    setIsChecked(!isChecked);
-    if (!isChecked) {
-      setServiceProvider("Yes");
-    }
+    const target = e.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        console.log(value)
+    
+        setServiceProvider(value);
   };
 
   const handleRegister = (e) => {

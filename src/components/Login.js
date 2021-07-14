@@ -16,6 +16,7 @@ const required = (value) => {
   }
 };
 
+
 const Login = (props) => {
   const form = useRef();
   const checkBtn = useRef();
@@ -46,15 +47,9 @@ const Login = (props) => {
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.login(email, password).then(
         () => {
-          var user = AuthService.getCurrentUser();
-          if(user.serviceProvider === "Yes") {
-            props.history.push("/registerServiceProviderProfile");
-            window.location.reload();
-          } else {
             props.history.push("/servicesPage");
             window.location.reload();
-          }
-          
+        
         },
         (error) => {
           const resMessage =

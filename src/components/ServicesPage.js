@@ -7,7 +7,7 @@ import ApplianceRepair2 from '../assets/ApplianceRepair2.jpg';
 import HouseRepair2 from '../assets/HouseRepair2.jpg';
 import PersonalCare2 from '../assets/PersonalCare2.jpg';
 import Others2 from '../assets/Others2.jpg';
-import PropTypes from "prop-types";
+
 
 class ServicesPage extends Component {
 
