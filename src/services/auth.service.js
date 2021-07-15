@@ -38,20 +38,10 @@ const getCurrentUser = () => {
 };
 
 
-const getCategories = async () => {
-  try{ 
-    return axios
-    .get(API_URL + "categories")
-  } catch (error) {
-    console.error(error)
-  }
-}
-
 
 export default {
   register,
   login,
   logout,
-  getCurrentUser,
-  getCategories
+  getCurrentUser
 };
