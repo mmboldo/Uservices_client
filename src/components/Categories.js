@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import AuthService from "../services/auth.service";
 
 const Category = props => {
     return (<>
@@ -8,11 +7,6 @@ const Category = props => {
     </>
     )
 }
-
-const currentUser = AuthService.getCurrentUser();
-const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
-
 
 export default class RegisterServiceProviderProfile extends Component {
 

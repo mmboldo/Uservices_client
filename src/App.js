@@ -8,11 +8,7 @@ import AuthService from "./services/auth.service";
 
 import Login from "./components/Login";
 import Register from "./components/Register";
-import Home from "./components/Home";
 import Profile from "./components/Profile";
-import BoardUser from "./components/BoardUser";
-import BoardModerator from "./components/BoardModerator";
-import BoardAdmin from "./components/BoardAdmin";
 import SideNavigationBar from "./components/SideNavigationBar";
 import PageSettings from "./components/PageSettings"
 import Carrosel from "./components/Carrosel";
@@ -35,8 +31,7 @@ import EditUserProfile from "./components/EditUserProfile";
 
 
 const App = () => {
-  const [showModeratorBoard, setShowModeratorBoard] = useState(false);
-  const [showAdminBoard, setShowAdminBoard] = useState(false);
+
   const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
@@ -44,8 +39,6 @@ const App = () => {
 
     if (user) {
       setCurrentUser(user);
-      setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
-      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
     }
   }, []);
 
@@ -212,9 +205,6 @@ const App = () => {
             <Route exact path="/files" component={FileUpload} />
             <Route exact path="/registerServiceProviderProfile" component={RegisterServiceProviderProfile} />
             <Route exact path="/editUserProfile" component={EditUserProfile} />
-            <Route path="/user" component={BoardUser} />
-            <Route path="/mod" component={BoardModerator} />
-            <Route path="/admin" component={BoardAdmin} />
           </Switch>
           <Footer />
 

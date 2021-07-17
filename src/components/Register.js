@@ -52,7 +52,7 @@ const Register = (props) => {
   const [serviceProvider, setServiceProvider] = useState(false);
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
-  const [isChecked, setIsChecked] = useState();
+  const [isChecked] = useState();
 
   const onChangeFirstName = (e) => {
     const firstName = e.target.value;
@@ -81,7 +81,6 @@ const Register = (props) => {
   const onChangeServiceProvider = (e) => {
     const target = e.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
         console.log(value)
     
         setServiceProvider(value);
