@@ -1,11 +1,11 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import axios from 'axios';
 import AuthService from "../services/auth.service";
 import ProfilePic from "../assets/Profile.jpg";
 import Availability from "./Availability";
 
 const currentUser = AuthService.getCurrentUser();
-const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+//const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const categoriesArray = (['Pet', 'Housekeep', 'Beauty', 'Appliance Repair', 'House Repair', 'Personal Care', 'Health Care', 'Other Services']);
 
 

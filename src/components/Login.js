@@ -117,7 +117,7 @@ const Login = (props) => {
             padding: [15, 10],
             textAlign: 'right',
           }}>Not a user yet? Please register here.</a> &nbsp; &nbsp;
-            <a href="#" title="ServiceProviderRegister" target="_blank" style={{
+            <a href="/register" title="ServiceProviderRegister" target="_blank" style={{
               color: "white",
               borderBottom: 'black solid 1px',
               padding: [15, 10],

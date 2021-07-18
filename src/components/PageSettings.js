@@ -8,7 +8,7 @@ export default function PageSettings() {
     return (
         <div>
             <header className="w3-container w3-xlarge">
-                <img src={name} style={{ width: '300px' }} />
+                <img src={name} style={{ width: '300px' }} alt="Name" />
                 <p className="w3-right">
                     <i className="fa fa-shopping-cart w3-margin-right"></i>
                     <i className="fa fa-search"></i>

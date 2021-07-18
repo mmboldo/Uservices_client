@@ -14,7 +14,7 @@ export default function ServicesMenu() {
         <div className="w3-col l3 s6">
           <div className="w3-container">
             <div className="w3-display-container">
-              <img src={petServices} style={{width: '100%'}} />
+              <img src={petServices} style={{width: '100%'}} alt="PetServices"/>
               <div className="w3-display-middle w3-display-hover">
                 <a href="/pet"><button className="w3-button w3-black">Search<i className="fa fa-shopping-cart" /></button></a>
               </div>
@@ -23,7 +23,7 @@ export default function ServicesMenu() {
           </div>
           <div className="w3-container">
             <div className="w3-display-container">
-              <img src={applianceRepair} style={{width: '100%'}} />
+              <img src={applianceRepair} style={{width: '100%'}} alt="ApplianceRepair" />
               <div className="w3-display-middle w3-display-hover">
               <a href="/applianceRepair"><button className="w3-button w3-black">Search<i className="fa fa-shopping-cart" /></button></a>
               </div>
@@ -34,7 +34,7 @@ export default function ServicesMenu() {
         <div className="w3-col l3 s6">
           <div className="w3-container">
             <div className="w3-display-container">
-              <img src={housekeep} style={{width: '100%'}} />
+              <img src={housekeep} style={{width: '100%'}} alt="Housekeep" />
               <span className="w3-tag w3-display-topleft">New</span>
               <div className="w3-display-middle w3-display-hover">
               <a href="/housekeep"><button className="w3-button w3-black">Search<i className="fa fa-shopping-cart" /></button></a>
@@ -44,7 +44,7 @@ export default function ServicesMenu() {
           </div>
           <div className="w3-container">
             <div className="w3-display-container">
-              <img src={houseRepair} style={{width: '100%'}} />
+              <img src={houseRepair} style={{width: '100%'}} alt="HouseRepair" />
               <div className="w3-display-middle w3-display-hover">
               <a href="/houseRepair"><button className="w3-button w3-black">Search<i className="fa fa-shopping-cart" /></button></a>
               </div>
@@ -55,7 +55,7 @@ export default function ServicesMenu() {
         <div className="w3-col l3 s6">
           <div className="w3-container">
             <div className="w3-display-container">
-              <img src={beauty} style={{width: '100%'}} />
+              <img src={beauty} style={{width: '100%'}} alt="Beauty" />
               <div className="w3-display-middle w3-display-hover">
               <a href="/beauty"><button className="w3-button w3-black">Search<i className="fa fa-shopping-cart" /></button></a>
               </div>
@@ -64,7 +64,7 @@ export default function ServicesMenu() {
           </div>
           <div className="w3-container">
             <div className="w3-display-container">
-              <img src={personalCare} style={{width: '100%'}} />
+              <img src={personalCare} style={{width: '100%'}} alt="PersonalCare" />
               <div className="w3-display-middle w3-display-hover">
               <a href="/personalCare"><button className="w3-button w3-black">Search<i className="fa fa-shopping-cart" /></button></a>
               </div>
@@ -75,7 +75,7 @@ export default function ServicesMenu() {
         <div className="w3-col l3 s6">
           <div className="w3-container">
             <div className="w3-display-container">
-              <img src={healthCare} style={{width: '100%'}} />
+              <img src={healthCare} style={{width: '100%'}} alt="HealthCare" />
               <div className="w3-display-middle w3-display-hover">
               <a href="/healthCare"><button className="w3-button w3-black">Search<i className="fa fa-shopping-cart" /></button></a>
               </div>
@@ -84,7 +84,7 @@ export default function ServicesMenu() {
           </div>
           <div className="w3-container">
             <div className="w3-display-container">
-              <img src={others} style={{width: '100%'}} />
+              <img src={others} style={{width: '100%'}} alt="Others" />
               <div className="w3-display-middle w3-display-hover">
               <a href="/otherServices"><button className="w3-button w3-black">Search<i className="fa fa-shopping-cart" /></button></a>
               </div>
