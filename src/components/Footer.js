@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer(){
     return (
-        <div style={{marginTop: '0px'}}><footer className="w3-padding-64 w3-grey w3-small w3-center" id="footer">
+        <div ><footer className="w3-padding-64 w3-grey w3-small w3-center" id="footer">
             <div className="w3-row-padding">
                 <div className="w3-col s4">
                     <h4>Contact</h4>

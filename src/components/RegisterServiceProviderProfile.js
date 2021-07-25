@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import axios from 'axios';
 import AuthService from "../services/auth.service";
 import ProfilePic from "../assets/Profile.jpg";
-import Availability from "./Availability";
+
 
 const currentUser = AuthService.getCurrentUser();
-//const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const daysOfWeek = ['Week Days', 'Weekends', 'Week Days and Weekends'];
 const categoriesArray = (['Pet', 'Housekeep', 'Beauty', 'Appliance Repair', 'House Repair', 'Personal Care', 'Health Care', 'Other Services']);
 
 
@@ -19,22 +19,20 @@ export default class RegisterServiceProviderProfile extends Component {
         this.onChangePrice = this.onChangePrice.bind(this);
         this.onChangeAvailability = this.onChangeAvailability.bind(this);
         this.onChangeCategory = this.onChangeCategory.bind(this);
+        this.onChangeProfileImages = this.onChangeProfileImages.bind(this);
+        this.onChangeSucessful = this.onChangeSucessful.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             subcategory: '',
             description: '',
             price: '',
-            availability: [{ label: 'Monday', value: 'Monday' },
-            { label: 'Tuesday', value: 'Tuesday' },
-            { label: 'Wednesday', value: 'Wednesday' },
-            { label: 'Thursday', value: 'Thursday' },
-            { label: 'Friday', value: 'Friday' },
-            { label: 'Saturday', value: 'Saturday' },
-            { label: 'Sunday', value: 'Sunday' }],
+            availability: '',
             category: '',
+            profileImages: '',
+            successful: ''
         };
-        
+
     }
 
     onChangeSubcategory(e) {
@@ -65,6 +63,14 @@ export default class RegisterServiceProviderProfile extends Component {
         this.setState({ category: e.target.value })
     }
 
+    onChangeProfileImages(e) {
+        this.setState({ profileImages: e.target.files });
+    }
+
+    onChangeSucessful(e) {
+        this.setState({ successful: e.target.value });
+    }
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -73,12 +79,25 @@ export default class RegisterServiceProviderProfile extends Component {
             description: this.state.description,
             price: this.state.price,
             availability: this.state.availability,
-            category: this.state.category
+            category: this.state.category,
+            profileImages: this.state.profileImages
         }
-        
+
+        var formData = new FormData();
+
+        formData.append("subcategory", this.state.subcategory);
+        formData.append("description", this.state.description);
+        formData.append("price", this.state.price);
+        formData.append("availability", this.state.availability);
+        formData.append("category", this.state.category);
+
+        for (const key of Object.keys(this.state.profileImages)) {
+            formData.append('profileImages', this.state.profileImages[key])
+        }
+
         axios.get('http://localhost:8080/categories/' + this.state.category)
             .then(response => {
-                axios.post('http://localhost:8080/serviceProviderRegister/' + currentUser.id + "/" + response.data._id, newServiceProviderProfile)
+                axios.post('http://localhost:8080/serviceProviderRegister/' + currentUser.id + "/" + response.data._id, formData)
                     .then(res => console.log(res.data)
                         .catch(error => console.error(error)));
 
@@ -86,10 +105,11 @@ export default class RegisterServiceProviderProfile extends Component {
                     subcategory: '',
                     description: '',
                     price: '',
-                    availability: ''
+                    availability: '',
+                    profileImages: [],
+                    successful: true
                 })
             });
-
     }
 
 
@@ -105,86 +125,105 @@ export default class RegisterServiceProviderProfile extends Component {
                         {currentUser.firstName}'s Service Provider Registration Page
                     </h1>
                 </div>
-                <form onSubmit={this.onSubmit}>
-                    <div className="w3-container w3-light-grey  w3-padding-32 ">
-                        <img
-                            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-                            alt="profile-img"
-                            className="profile-img-card"
-                        />
-                        <div className="form-group w3-center">
-                            <button className="w3-button w3-gray ">Upload Picture</button>
-                        </div>
-                        <div className="form-group">
-                            <select id="category" onChange={this.onChangeCategory} value={this.state.category} className="w3-input w3-border" type="text" style={{ width: '100%', display: "inline-block" }}>
-                                <option value="">--Category--</option>
-                                {categoriesArray.map(category => <option>{category}</option>)}
-                            </select>
-                        </div>
-                        <div className="form-group">
-                            <p><input
-                                type="text"
-                                className="w3-input w3-border"
-                                name="subcategory"
-                                value={this.state.subcategory}
-                                onChange={this.onChangeSubcategory}
-                                style={{ width: '100%' }}
-                                placeholder="Name a Subcategory for you Service. Ex.: Dog Walker"
-                            />
-                            </p>
-                        </div>
-                        <div className="form-group">
-                            <p><textarea
-                                type="text"
-                                className="w3-input w3-border"
-                                name="description"
-                                rows="4"
-                                style={{ width: '100%' }}
-                                placeholder="Describe your Service"
-                                value={this.state.description}
-                                onChange={this.onChangeDescription}
-                            />
-                            </p>
-                        </div>
-                        <div className="form-group" >
-                            <input
-                                type="text"
-                                className="w3-input w3-border"
-                                name="price"
-                                value={this.state.price}
-                                onChange={this.onChangePrice}
-                                style={{ width: '25%', display: "inline-block" }}
-                                placeholder="Price per hour"
-                            />&nbsp;&nbsp;
-                            <Availability className="w3-input w3-border" onChange={this.onChangeAvailability} value={this.state.availability}/>
-                            {/* <select
-                                id="availability"
-                                onChange={this.onChangeAvailability}
-                                value={this.state.availability}
-                                className="w3-input w3-border"
-                                type="text"
-                                style={{ width: '30%', display: "inline-block" }}
-                            >
-                                <option value="">--Availability--</option>
-                                {daysOfWeek.map(day => <option>{day}</option>)}
+                <div className="w3-container w3-light-grey  w3-padding-32 ">
 
-                            </select>  */}
-                            &nbsp;  &nbsp; 
-                            <input
-                                type="text"
-                                className="w3-input w3-border"
-                                name="price"
+                    {!this.state.successful && (
+                        <form onSubmit={this.onSubmit} encType="multipart/form-data">
 
-                                style={{ width: '32%', display: "inline-block" }}
-                                placeholder="Upload pictures (up to 3 pictures)"
-                            />&nbsp; &nbsp;
-                            <button className="w3-button w3-gray " style={{ display: "inline-block" }}>Upload</button>
-                        </div>
-                        <div className="form-group w3-center">
-                            <button type="submit" className="w3-button w3-red ">Submit</button>
-                        </div>
-                    </div >
-                </form>
+                            <div className="form-group">
+                                <p><label style={{ fontWeight: "bold" }}>Category</label></p>
+                                <select id="category" onChange={this.onChangeCategory} value={this.state.category} className="w3-input w3-border" type="text" style={{ width: '100%', display: "inline-block" }}>
+                                    <option value="">--Category--</option>
+                                    {categoriesArray.map(category => <option>{category}</option>)}
+                                </select>
+                            </div>
+                            <div className="form-group">
+                                <p><label style={{ fontWeight: "bold" }}>Subcategory</label></p>
+                                <p><input
+                                    type="text"
+                                    className="w3-input w3-border"
+                                    name="subcategory"
+                                    value={this.state.subcategory}
+                                    onChange={this.onChangeSubcategory}
+                                    style={{ width: '100%' }}
+                                    placeholder="Name a Subcategory for you Service. Ex.: Dog Walker"
+                                />
+                                </p>
+                            </div>
+                            <div className="form-group">
+                                <p><label style={{ fontWeight: "bold" }}>Service Description</label></p>
+                                <p><textarea
+                                    type="text"
+                                    className="w3-input w3-border"
+                                    name="description"
+                                    rows="4"
+                                    style={{ width: '100%' }}
+                                    placeholder="Describe your Service"
+                                    value={this.state.description}
+                                    onChange={this.onChangeDescription}
+                                />
+                                </p>
+                            </div>
+                            <p style={{ paddingLeft: "60px" }}><label style={{ fontWeight: "bold", width: '48%', display: "inline-block" }}>Price Per Hour</label>
+                                <label style={{ fontWeight: "bold", width: '28%', display: "inline-block" }}>Availability</label></p>
+                            <div className="form-group w3-center" >
+
+                                <input
+                                    type="text"
+                                    className="w3-input w3-border"
+                                    name="price"
+                                    value={this.state.price}
+                                    onChange={this.onChangePrice}
+                                    style={{ width: '45%', display: "inline-block" }}
+                                    placeholder="Price per hour"
+                                />&nbsp;&nbsp;
+
+                                <select
+                                    id="availability"
+                                    onChange={this.onChangeAvailability}
+                                    value={this.state.availability}
+                                    className="w3-input w3-border"
+                                    type="text"
+                                    style={{ width: '45%', display: "inline-block" }}
+
+                                >
+                                    <option value="">--Availability--</option>
+                                    {daysOfWeek.map(day => <option>{day}</option>)}
+
+                                </select>
+
+                            </div>
+                            <br />
+                            <div className="form-group w3-center">
+                                <p><label style={{ fontWeight: "bold" }}>Press and hold 'Shift' to select up to 4 images</label></p>
+                                <input type="file" name="profileImages" multiple className="w3-center" onChange={this.onChangeProfileImages} />
+                            </div>
+                            <div className="form-group w3-center">
+                                <button type="submit" className="w3-button w3-red ">Submit</button>
+                            </div>
+
+                            
+                        </form >
+                    )}
+                    {this.state.successful && (
+                                <div className="form-group ">
+                                    <div
+                                        className={
+                                            this.state.successful ? "alert alert-success" : "alert alert-danger"
+                                        }
+                                        role="alert"
+                                        style={{display: "inline-block"}}
+                                    >
+                                        
+                                        {"Service Provider Profile registered successfully"}
+                                    </div>
+                                    <a href="/registerServiceProviderProfile" className="w3-button alert alert-success w3-red w3-right" style={{display: "inline-block"}}>Add Another</a>
+                                </div>
+                            )}
+                </div >
+
+
+
 
             </div >
         )

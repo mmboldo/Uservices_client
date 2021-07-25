@@ -139,6 +139,7 @@ export default class EditUserProfile extends Component {
                     <Form onSubmit={this.onSubmit} >
                         <div>
                             <div className="form-group">
+                                <p><label style={{fontWeight:"bold"}}>First Name</label></p>
                                 <p><Input
                                     type="text"
                                     className="w3-input w3-border"
@@ -151,6 +152,7 @@ export default class EditUserProfile extends Component {
                                 </p>
                             </div>
                             <div className="form-group">
+                            <p><label style={{fontWeight:"bold"}}>Last Name</label></p>
                                 <Input
                                     type="text"
                                     className="w3-input w3-border"
@@ -162,6 +164,7 @@ export default class EditUserProfile extends Component {
                                 />
                             </div>
                             <div className="form-group">
+                            <p><label style={{fontWeight:"bold"}}>Email</label></p>
                                 <Input
                                     type="text"
                                     className="w3-input w3-border"
@@ -173,6 +176,7 @@ export default class EditUserProfile extends Component {
                                 />
                             </div>
                             <div className="form-group">
+                            <p><label style={{fontWeight:"bold"}}>Address</label></p>
                                 <Input
                                     type="text"
                                     className="w3-input w3-border"
@@ -183,6 +187,7 @@ export default class EditUserProfile extends Component {
                                 />
                             </div>
                             <div className="form-group">
+                            <p><label style={{fontWeight:"bold"}}>Province</label></p>
                                 <label>
                                     <select id="province" className="w3-input w3-border" onChange={this.onChangeProvince} value={this.state.province} type="text" >
                                         <option value="">--Please select a Province--</option>
@@ -191,18 +196,19 @@ export default class EditUserProfile extends Component {
                                 </label>
                             </div>
                             <div className="form-group">
+                            <p><label style={{fontWeight:"bold"}}>Password</label></p>
                                 <Input
                                     type="password"
                                     className="w3-input w3-border"
                                     name="password"
                                     value={currentUser.password}
                                     onChange={this.onChangePassword}
-                                    placeholder={currentUser.password}
+                                    placeholder="Enter your password"
                                 />
                             </div>
                             <div className="form-group">
                                 <label>
-                                    <p>Do you want to become a Service Provider?  &nbsp;
+                                    <p style={{fontWeight:"bold"}}>Do you want to become a Service Provider?  &nbsp;
                                         <input type="checkbox" id="serviceProvider"
                                             value={this.state.serviceProvider}
                                             onChange={this.onChangeServiceProvider}
