@@ -14,7 +14,7 @@ export default class RegisterServiceProviderProfile extends Component {
     constructor(props) {
         super(props);
 
-        this.onChangeSubcategory = this.onChangeSubcategory.bind(this);
+        this.onChangeCompanyName = this.onChangeCompanyName.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangePrice = this.onChangePrice.bind(this);
         this.onChangeAvailability = this.onChangeAvailability.bind(this);
@@ -24,7 +24,7 @@ export default class RegisterServiceProviderProfile extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            subcategory: '',
+            companyName: '',
             description: '',
             price: '',
             availability: '',
@@ -35,9 +35,9 @@ export default class RegisterServiceProviderProfile extends Component {
 
     }
 
-    onChangeSubcategory(e) {
+    onChangeCompanyName(e) {
         this.setState({
-            subcategory: e.target.value
+            companyName: e.target.value
         });
     }
 
@@ -75,7 +75,7 @@ export default class RegisterServiceProviderProfile extends Component {
         e.preventDefault();
 
         const newServiceProviderProfile = {
-            subcategory: this.state.subcategory,
+            companyName: this.state.companyName,
             description: this.state.description,
             price: this.state.price,
             availability: this.state.availability,
@@ -85,7 +85,7 @@ export default class RegisterServiceProviderProfile extends Component {
 
         var formData = new FormData();
 
-        formData.append("subcategory", this.state.subcategory);
+        formData.append("companyName", this.state.companyName);
         formData.append("description", this.state.description);
         formData.append("price", this.state.price);
         formData.append("availability", this.state.availability);
@@ -102,7 +102,7 @@ export default class RegisterServiceProviderProfile extends Component {
                         .catch(error => console.error(error)));
 
                 this.setState({
-                    subcategory: '',
+                    companyName: '',
                     description: '',
                     price: '',
                     availability: '',
@@ -138,15 +138,15 @@ export default class RegisterServiceProviderProfile extends Component {
                                 </select>
                             </div>
                             <div className="form-group">
-                                <p><label style={{ fontWeight: "bold" }}>Subcategory</label></p>
+                                <p><label style={{ fontWeight: "bold" }}>Company Name</label></p>
                                 <p><input
                                     type="text"
                                     className="w3-input w3-border"
-                                    name="subcategory"
-                                    value={this.state.subcategory}
-                                    onChange={this.onChangeSubcategory}
+                                    name="companyName"
+                                    value={this.state.companyName}
+                                    onChange={this.onChangeCompanyName}
                                     style={{ width: '100%' }}
-                                    placeholder="Name a Subcategory for you Service. Ex.: Dog Walker"
+                                    placeholder="Insert your Company Name"
                                 />
                                 </p>
                             </div>

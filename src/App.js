@@ -24,7 +24,7 @@ import OtherServices from "./components/OtherServices";
 import Footer from "./components/Footer";
 import ServicesPage from "./components/ServicesPage";
 import RegisterServiceProviderProfile from "./components/RegisterServiceProviderProfile";
-
+import OpenComplaint from "./components/OpenComplaint";
 import FileUpload from "./components/FileUpload";
 
 import EditUserProfile from "./components/EditUserProfile";
@@ -166,9 +166,9 @@ const App = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link text-dark ">
-              Newsletter
-            </a>
+          <Link to={"/openComplaint"} className="nav-link">
+              Open a Complaint
+            </Link>
           </li>
           <li className="nav-item">
             <a href="#" className="nav-link text-dark ">
@@ -205,6 +205,7 @@ const App = () => {
             <Route exact path="/files" component={FileUpload} />
             <Route exact path="/registerServiceProviderProfile" component={RegisterServiceProviderProfile} />
             <Route exact path="/editUserProfile" component={EditUserProfile} />
+            <Route exact path="/openComplaint" component={OpenComplaint} />
           </Switch>
           <Footer />
 
