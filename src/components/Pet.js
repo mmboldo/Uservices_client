@@ -1,9 +1,10 @@
 import React from "react";
+import SPContainer from "./SPContainer";
 
 export default function Pet() {
     return (
         <div style={{ marginTop: '0px' }}>
-            <h1>PET</h1>
+            <SPContainer />
         </div>
 
     )
