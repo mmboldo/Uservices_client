@@ -12,7 +12,10 @@ export default class Profile extends Component {
 
         this.onChangeCompanyName = this.onChangeCompanyName.bind(this);
         this.onChangeComplain = this.onChangeComplain.bind(this);
+        this.onChangeComplaintDescription = this.onChangeComplaintDescription.bind(this);
+        this.onChangeSucessful = this.onChangeSucessful.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.onSubmitComplaint = this.onSubmitComplaint.bind(this);
 
         this.state = {
             user: [],
@@ -23,7 +26,9 @@ export default class Profile extends Component {
             availability: '',
             profileImages: [],
             category: [],
-            complaint: "false"
+            complaint: "false",
+            complaintDescription: '', 
+            success: ''
         };
     }
     componentDidUpdate() {
@@ -63,6 +68,17 @@ export default class Profile extends Component {
             companyName: e.target.value
         });
     }
+
+    onChangeComplaintDescription(e) {
+        this.setState({
+            complaintDescription: e.target.value
+        })
+    }
+
+    onChangeSucessful(e) {
+        this.setState({ successful: e.target.value });
+    }
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -93,7 +109,24 @@ export default class Profile extends Component {
             })
 
         this.setState({ complaint: "false" });
+    }
 
+    onSubmitComplaint(e) {
+        e.preventDefault();
+
+        console.log(`Complaint Description: ${this.state.complaintDescription}` )
+
+        const newComplaint = {
+            complaintDescription: this.state.complaintDescription
+        }
+
+        axios.post('http://localhost:8080/complaints/' + currentUser.id, newComplaint)
+            .then(res => console.log(res.data));
+
+        this.setState({
+            complaintDescription: '',
+            successful: true
+        })
     }
 
 
@@ -143,12 +176,13 @@ export default class Profile extends Component {
                             <div className="w3-center" style={{ paddingBottom: "20px" }}>
                                 <button type="submit" className="w3-button w3-red" value={this.state.complaint} onClick={this.onChangeComplain} >Add a Complaint</button>
                             </div>
-                            {this.state.complaint === "true" && (
-                                <form>
+                            {this.state.complaint === "true" && !this.state.successful && (
+                                <form onSubmit={this.onSubmitComplaint}>
                                     <p><textarea
                                         type="text"
                                         className="w3-input w3-border"
-                                        name="description"
+                                        value={this.state.complaintDescription}
+                                        onChange={this.onChangeComplaintDescription}
                                         rows="4"
                                         style={{ width: '100%' }}
                                         placeholder="Please explain your complaint" />
@@ -157,6 +191,22 @@ export default class Profile extends Component {
                                         <button type="submit" className="w3-button w3-red" >Send</button>
                                     </div>
                                 </form>
+                            )}
+                            {this.state.successful && (
+                                <div className="form-group w3-center">
+                                    <div
+                                        className={
+                                            this.state.successful ? "alert alert-success" : "alert alert-danger"
+                                        }
+                                        
+                                        role="alert"
+                                        style={{display: "inline-block"}}
+                                    >
+                                        
+                                        {"Complaint registered successfully"}
+
+                                    </div>
+                                </div>
                             )}
 
                         </div>
