@@ -1,4 +1,6 @@
 import React from 'react'
+import Rater from 'react-rater'
+import 'react-rater/lib/react-rater.css'
 
 const SPItem = (props) => {
 
@@ -13,13 +15,12 @@ const SPItem = (props) => {
                 </div>
                 <div className="dog-info">
                     <h2>{companyName} </h2>
-                    {/* <p> {props.pet.adoption ? 'I am adopted' : "Adopt me"}</p> */}
                 </div>
+                <p>Rate:</p><Rater rating={2} total={5} interactive={false} />
                 <div className="clear"></div>
             </div>
         </div>
     )
 }
-
 
 export default SPItem
