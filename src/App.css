@@ -31,12 +31,12 @@ label {
 	border-radius: 50%;
 }
 
-.pet-container {
+.sp-container {
 	/* height: 100vh; */
 	overflow: auto;
 }
 
-.dog-img {
+.sp-img {
 	width: 40%;
 	float: left;
 	padding-right: 20px;
@@ -45,11 +45,11 @@ label {
 	padding-bottom: 20px;
 }
 
-.dog-img-div {
+.sp-img-div {
 	/* overflow: hidden; */
 }
 
-.dog-item {
+.sp-item {
 	width: 30%;
 	float: left;
 	margin: 20px;
@@ -61,7 +61,7 @@ label {
 	clear: both;
 }
 
-.dog-card-container {
+.sp-card-container {
 	width: 40vw;
 	margin: 0 auto;
 	box-shadow: 3px 3px 5px 6px #ccc;
@@ -69,13 +69,13 @@ label {
 	padding: 15px;
 }
 
-.dog-card-img {
+.sp-card-img {
 	border-radius: 15px;
 	width: 100%;
 	height: auto;
 }
 
-.dog-info {
+.sp-info {
 	/* border: 1px solid black; */
 
 	/* background-color: rgba(151,189,150, 0.7) */

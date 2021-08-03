@@ -130,7 +130,7 @@ export default class SPContainer extends Component {
 
 
         return (
-            <div className="pet-container">
+            <div className="sp-container">
 
                 <label>Sort Service Providers</label>
 

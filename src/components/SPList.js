@@ -7,7 +7,7 @@ const SPList = (props) => {
         <>
             <label htmlFor="search">Search by name </label>
             <input type="text" value={props.inputValue} onChange={props.SPFilterOnChange} />
-            <div className="dog-list">
+            <div className="sp-list">
                 {
                     props.serviceProviders.map(serviceProvider => {
                         return <SPItem serviceProvider={serviceProvider} key={serviceProvider.id} handleSPView={props.handleSPView} />

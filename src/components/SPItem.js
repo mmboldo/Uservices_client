@@ -6,10 +6,10 @@ const SPItem = (props) => {
     const SPimage = profileImages[0];
 
     return (
-        <div className="dog-item-container">
-            <div className="dog-item" onClick={() => props.handleSPView(props.serviceProvider)}>
-                <div className="dog-img-div">
-                    <img className="dog-img" src={`/uploads/${SPimage}`} alt={companyName} />
+        <div className="sp-item-container">
+            <div className="sp-item" onClick={() => props.handleSPView(props.serviceProvider)}>
+                <div className="sp-img-div">
+                    <img className="sp-img" src={`/uploads/${SPimage}`} alt={companyName} />
                 </div>
                 <div className="dog-info">
                     <h2>{companyName} </h2>
