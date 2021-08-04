@@ -111,11 +111,6 @@ const App = () => {
               Open a Complaint
             </Link>
           </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link text-dark ">
-              Subscribe
-            </a>
-          </li>
         </ul>
       </div>
       {/* End of Navigation Bar */}
