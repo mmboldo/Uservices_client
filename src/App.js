@@ -49,68 +49,68 @@ const App = () => {
           <li className="nav-item" style={{ paddingLeft: "12px" }}>
             {currentUser ? (
               <div className="navbar-nav ml-auto">
-                <li className="nav-item">
+                <p className="nav-item">
                   <Link to={"/profile"} className="nav-link">
                     {currentUser.username}
                   </Link>
-                </li>
-                <li className="nav-item">
+                </p>
+                <p className="nav-item">
                   <a href="/login" className="nav-link" onClick={logOut}>
                     LogOut
                   </a>
-                </li>
-                <li className="nav-item">
+                </p>
+                <p className="nav-item">
                   <a href="/profile" className="nav-link" >
                     My Profile
                   </a>
-                </li>
-                <li className="nav-item">
+                </p>
+                <p className="nav-item">
                   <a href="/files" className="nav-link" >
                     My Files
                   </a>
-                </li>
-                <li className="nav-item">
+                </p>
+                <p className="nav-item">
                   <a href="/myServiceProviderProfiles" className="nav-link" >
                     My Service Provider Profiles
                   </a>
-                </li>
+                </p>
               </div>
             ) : (
               <div className="navbar-nav ml-auto">
-                <li className="nav-item">
+                <p className="nav-item">
                   <Link to={"/login"} className="nav-link">
                     Login
                   </Link>
-                </li>
-                <li className="nav-item">
+                </p>
+                <p className="nav-item">
                   <Link to={"/register"} className="nav-link">
                     Sign Up
                   </Link>
-                </li>
+                </p>
               </div>
             )}
           </li>
         </ul>
         <p className="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Services</p>
         <ul className="nav flex-column bg-white mb-0" style={{ paddingLeft: "12px" }}>
-          <li className="nav-item">
+          <p className="nav-item">
             <Link to={"/browseserviceproviders"} className="nav-link">
               Browse Service Providers
             </Link>
-          </li>
+          </p>
         </ul>
         <p className="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Help</p>
         <ul className="nav flex-column bg-white mb-0" style={{ paddingLeft: "12px" }}>
-          <li className="nav-item">
-            <a href="#" className="nav-link text-dark ">
-              Contact Us
-            </a>
-          </li>
-          <li className="nav-item">
+          <p className="nav-item">
             <Link to={"/openComplaint"} className="nav-link">
               Open a Complaint
             </Link>
-          </li>
+          </p>
+          <p className="nav-item">
+            <a href="#" className="nav-link text-dark ">
+              Contact Us
+            </a>
+          </p>
         </ul>
       </div>
       {/* End of Navigation Bar */}

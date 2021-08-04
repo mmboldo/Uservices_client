@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import axios from 'axios';
 import AuthService from "../services/auth.service";
 import ProfilePic from "../assets/Profile.jpg";
@@ -73,15 +73,6 @@ export default class RegisterServiceProviderProfile extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-
-        const newServiceProviderProfile = {
-            companyName: this.state.companyName,
-            description: this.state.description,
-            price: this.state.price,
-            availability: this.state.availability,
-            category: this.state.category,
-            profileImages: this.state.profileImages
-        }
 
         var formData = new FormData();
 
