@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import SPList from '../components/SPList'
 import SPViewer from '../components/SPViewer'
+import Beauty from "../assets/Beauty2.jpg"
+
 export default class SPContainer extends Component {
 
     state = {
@@ -84,23 +86,34 @@ export default class SPContainer extends Component {
             })
 
         return (
-            <div className="sp-container">
-                <label>Sort Service Providers</label>
-                <select name="sortValue" onChange={this.handleSortSPs}>
-                    <option value="All">All</option>
-                    <option value="companyName">Company Name</option>
-                    <option value="description">Description</option>
-                </select>
-                {
-                    this.state.isSPViewOn ?
-                        <SPViewer serviceProvider={this.state.serviceProvider}
-                            handleSPGoBack={this.handleSPGoBack} />
-                        :
-                        <SPList serviceProviders={this.sortSPs(filteredSPs)}
-                            handleSPView={this.handleSPView}
-                            SPFilterOnChange={this.SPFilterOnChange}
-                            inputValue={this.state.inputValue} />
-                }
+            <div>
+                <div className="w3-display-container w3-container" >
+                    <img src={Beauty} alt="ComplaintPic" style={{ width: '100%' }} />
+                </div>
+                <br />
+                <div className="w3-container w3-black w3-padding-32 ">
+                    <h1>
+                        Search for Service Providers
+                    </h1>
+                </div>
+                <div className="sp-container w3-container w3-light-grey  w3-padding-32" >
+                    <label style={{ fontWeight: "bold" }}>Sort Service Providers</label>
+                    <select name="sortValue" className="w3-input w3-border" onChange={this.handleSortSPs}>
+                        <option value="All">All</option>
+                        <option value="companyName">Company Name</option>
+                        <option value="description">Description</option>
+                    </select>
+                    {
+                        this.state.isSPViewOn ?
+                            <SPViewer serviceProvider={this.state.serviceProvider}
+                                handleSPGoBack={this.handleSPGoBack} />
+                            :
+                            <SPList serviceProviders={this.sortSPs(filteredSPs)}
+                                handleSPView={this.handleSPView}
+                                SPFilterOnChange={this.SPFilterOnChange}
+                                inputValue={this.state.inputValue} />
+                    }
+                </div>
             </div>
         )
     }

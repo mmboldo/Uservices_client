@@ -18,6 +18,7 @@ import RegisterServiceProviderProfile from "./components/RegisterServiceProvider
 import OpenComplaint from "./components/OpenComplaint";
 import FileUpload from "./components/FileUpload";
 import EditUserProfile from "./components/EditUserProfile";
+import MyServiceProviderProfiles from "./components/MyServiceProvidersProfiles";
 
 const App = () => {
 
@@ -68,6 +69,11 @@ const App = () => {
                     My Files
                   </a>
                 </li>
+                <li className="nav-item">
+                  <a href="/myServiceProviderProfiles" className="nav-link" >
+                    My Service Provider Profiles
+                  </a>
+                </li>
               </div>
             ) : (
               <div className="navbar-nav ml-auto">
@@ -83,16 +89,6 @@ const App = () => {
                 </li>
               </div>
             )}
-            <div className="navbar-nav ml-auto">
-              <li className="nav-link">
-                My Calendar
-              </li>
-            </div>
-            <div className="navbar-nav ml-auto">
-              <li className="nav-link">
-                Favorities
-              </li>
-            </div>
           </li>
         </ul>
         <p className="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Services</p>
@@ -142,6 +138,7 @@ const App = () => {
             <Route exact path="/registerServiceProviderProfile" component={RegisterServiceProviderProfile} />
             <Route exact path="/editUserProfile" component={EditUserProfile} />
             <Route exact path="/openComplaint" component={OpenComplaint} />
+            <Route exact path="/myServiceProviderProfiles" component={MyServiceProviderProfiles} />
           </Switch>
           <Footer />
         </div>

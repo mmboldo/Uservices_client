@@ -139,7 +139,7 @@ export default class Profile extends Component {
                 <br />
                 <div className="w3-container w3-black w3-padding-32 ">
                     <h1>
-                        {this.state.user.firstName}, make your Complaint
+                        , make your Complaint
                     </h1>
                 </div>
                 <div className="w3-container w3-light-grey  w3-padding-32 " >
@@ -162,8 +162,7 @@ export default class Profile extends Component {
                                 style={{ width: "40%", float: "left", paddingRight: "20px", paddingTop: "10px", paddingBottom: "20px" }} />
                             </p>
                             <div style={{ width: "50%", float: "left" }}>
-                                <p><label style={{ fontWeight: "bold" }}>Category</label></p>
-                                {/* <p>{this.state.category.map(category => category)}</p> */}
+                                <p><label style={{ fontWeight: "bold" }}>Service Provider Details</label></p>
                                 <p>{this.state.category}</p>
                                 <i className="fa fa-info-circle" style={{ display: "inline-block" }}></i> &nbsp;
                                 <p style={{ display: "inline-block" }}>{this.state.description}</p>  <br />
