@@ -139,7 +139,7 @@ export default class Profile extends Component {
                 <br />
                 <div className="w3-container w3-black w3-padding-32 ">
                     <h1>
-                        , make your Complaint
+                        {currentUser.firstName}, make your Complaint
                     </h1>
                 </div>
                 <div className="w3-container w3-light-grey  w3-padding-32 " >
@@ -202,7 +202,7 @@ export default class Profile extends Component {
                                         style={{display: "inline-block"}}
                                     >
                                         
-                                        {"Complaint registered successfully"}
+                                        {"Your complaint has been register successfully. We will get back to you shortly."}
 
                                     </div>
                                 </div>

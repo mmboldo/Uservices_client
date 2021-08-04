@@ -7,8 +7,8 @@ const SPCard = (props) => {
     const { companyName, description , price, availability} = props.serviceProvider
 
     return (
-        <div className="sp-card-container">
-            <div className="sp-card">
+        <div className="sp-card-container" style={{backgroundColor: "white"}}>
+            <div className="sp-card" >
                 <h2><b>Company Name : </b>{companyName} </h2>
                 <p><b>Description : </b>{description} </p>
                 <p><b>Price : $</b>{parseFloat(price).toFixed(2)}</p>

@@ -14,7 +14,7 @@ export default class Profile extends Component {
 
     componentDidMount() {
 
-        axios.get('http://localhost:8080/serviceProviders/' + currentUser.id)
+        axios.get('http://localhost:8080/serviceProvidersById/' + currentUser.id)
             .then(res => {
                 this.setState({ serviceProviderProfiles: res.data });
                 console.log(res.data)
@@ -22,11 +22,10 @@ export default class Profile extends Component {
             .catch(function (error) {
                 console.log(error);
             })
-
     }
 
     componentDidUpdate() {
-        axios.get('http://localhost:8080/serviceProviders/' + currentUser.id)
+        axios.get('http://localhost:8080/serviceProvidersById/' + currentUser.id)
             .then(response => {
                 this.setState({ serviceProviderProfiles: response.data });
             })

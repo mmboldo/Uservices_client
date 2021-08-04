@@ -9,7 +9,7 @@ const SPItem = (props) => {
 
     return (
         <div className="sp-item-container">
-            <div className="sp-item" onClick={() => props.handleSPView(props.serviceProvider)}>
+            <div className="sp-item" onClick={() => props.handleSPView(props.serviceProvider)}  style={{backgroundColor: "white"}}>
                 <div className="sp-img-div">
                     <img className="sp-img" src={`/uploads/${SPimage}`} alt={companyName} />
                 </div>
